@@ -19,8 +19,9 @@
   <div class="content">
       <h1>
         <span class="site-title">Zinuo Li</span>
-        <span class="site-description element">Software Developer</span>
+        <p class ="site-description">I am <span class="element"></span></p>
       </h1>
+      <br />
       <div class="icons-header">
         <a aria-label="Send email" href="mailto:zli156@hawk.iit.edu"><i class="icon fa fa-envelope"></i></a>
         <a aria-label="My Twitter" target="_blank" href="https://twitter.com/ZinuoLee"><i class="icon fa fa-twitter" aria-hidden="true"></i></a>
@@ -135,12 +136,14 @@
 <script>
 	document.addEventListener("DOMContentLoaded", function(){
 		Typed.new(".element", {
-			strings: ["Software Developer","Graduate from", "Illinois Institute of Technology", "Computer Science", "Seeking Full-Time Job"],
-			typeSpeed: 0,
+			strings: ["a Software Developer", "a highly motivated learner", "fond of Machine Learning", "Seeking Full-Time Jobs"],
+			typeSpeed: 30,
+			backDelay:2e3,
 			loop: true,
 			startDelay: 0,
 			attr: null,
-			showCursor: false
+			showCursor: false,
+
 		});
 	});
 </script>

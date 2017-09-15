@@ -206,3 +206,19 @@ body{font-family:'Montserrat',sans-serif; background: #cccccc}
 	margin:0;
 	color:#fff
 }
+.crop {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    top: 50px;
+    left: 70px;
+    border-radius: 30%;
+}
+
+
+.crop img {
+    width: 175px;
+    height: 280px;
+    margin: -50px -70px 0 -100px;
+}

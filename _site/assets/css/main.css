@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
-body{font-family:'Montserrat',sans-serif}
+body{font-family:'Montserrat',sans-serif;background: #cccccc}
 @-webkit-keyframes pulse{0%,
 	to{-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
 		filter:alpha(opacity=40);
@@ -23,7 +23,7 @@ body{font-family:'Montserrat',sans-serif}
 			top:-10px}
 }
 #particles-js{
-	background:#1a222c;
+	background:#303030;
 	display:block;
 	vertical-align:bottom;
 	width:100vw;
@@ -57,6 +57,7 @@ body{font-family:'Montserrat',sans-serif}
 		font-size:100px}
 }
 .content .site-description{
+	letter-spacing: .3px;
 	font-size:20px;
 	display:block;
 	line-height:1;
@@ -192,7 +193,7 @@ body{font-family:'Montserrat',sans-serif}
 	transition:color .3s ease-in,background-color .3s ease-in,border-color .3s ease-in
 }
 .footer{
-	background:#1a222c;
+	background:#303030;
 	padding:10px 0;
 	margin-top:100px;
 	text-align:center;

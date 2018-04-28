@@ -54,6 +54,7 @@ Merge Sort is useful in external sort.
     ```java
         (i>>>1 | i << (logn - 1)) & (size - 1)
     ``` 
+
 ## Quick Sort
 
 Select pivot randomly. swap to the final position. make sure the left side of pivot is smaller than pivot, the right side of the pivot is larger than pivot. swap back.

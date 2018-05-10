@@ -25,5 +25,19 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+
+  <script type="text/x-mathjax-config"> 
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); 
+  </script>
+ <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+ </script>
+ 
+ <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+ </script>
   
 </head>

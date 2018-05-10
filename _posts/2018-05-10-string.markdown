@@ -1,0 +1,217 @@
+`this is just a algorithm learning blog for my own purpose of use.`
+# String
+`This is just a personal file`
+
+5类常考问题
+
+- removal
+    - remove some particular chars from a string.
+    - remove all leading, trailing, duplicated space from a string.
+- De-duplication.
+    - aaaabb_ccc -> ab_c
+- replace empty space with "%20"
+- reversal. 
+    - "I love yahoo" -> "yahoo love I"
+- subString
+    - strstr
+    - "Robin-Karp" & KMP
+    
+Advanced Operation:
+
+- Move letters around: ABCD1234 -> A1B2C3D4
+- Permutation. (using DFS)
+- Decoding/Encoding. (aaaabbc -> a4b2c1)
+- Longest substring that only contains unique chars
+- Matching(*, ?)
+
+`Popular representation of chars`
+`ASCII representation: A->65, a-> 97, 0->48, 9->57`
+`Unicode`
+
+## Related Topics
+
+### Char Removal
+
+#### Remove a/some particular chars from a string
+
+String input = "student", remove "u" and "n".
+
+`常见错误·····使用类似array.remove方法`
+
+```java 
+for (int i = 0; i < charArray.length; i++) {
+    if (arr[i] == "u" || arr[i] == "n") remove i;
+    // All the rest elements after i will shift left by one
+}
+```
+Not only because this method is relatively slow(O(n)), but also it is wrong in some cases. 
+
+Suppose we have a String "stuudent", if we want to remove "u", this algorithm will only remove the first "u", the second one will override the space of first "u". After i++, we skip a value.
+
+**Method** Use 挡板法, 两个挡板**同向**而行。Maintain 物理意义:[0,i)是已探索区域，when a new element come, if it's not in the removal set, copy into array[i], i++.
+
+``` java
+int i = 0, j = 0;
+while (j < char.length) {
+    if (char[j] not in removalSet) {
+        char[i++]=char[j];
+    } else {//do nothing
+    }
+}
+```
+
+#### Remove all leading/trailing/duplicate empty spaces
+
+String input = "\___ab__c_d____" output = "ab_c_d"
+
+**Method** Same as previous problem, the difference are we need to know whether we need to ignore the space.
+
+1. ignore all spaces that its prev index is a space. so we will only have the first space of a consecutive spaces.
+2. If the space is the first characters
+
+``` java
+if (arr[fast] == ' ' && (fast == 0 || arr[fast - 1] == ' ')) {
+    continue;
+} 
+else {// copy the value to the slow pointer
+}
+```
+
+After this, we may have "a_b_" situation, need to do a post processing remove the last space.
+
+**Another method** 
+
+``` java
+while (true) {
+    while (fast < size && arr[fast] == ' ') { // delete trailing spaces
+        fast++;
+    }
+    if (fast == size) {break;} // the end of array
+    if (flag) {
+        // record the position of space
+        arr[slow++] = ' ';
+    }
+    while (fast < size && arr[fast] != ' ') {
+        arr[slow++] = arr[fast++];
+    }
+}
+```
+### Substring problems
+
+#### Determine whether a string is a substring of another
+
+**Method 1** Naive solution:
+
+``` java
+for (int i = 0; i < large.size - small.size; i++) {
+    if (equals(large, i, small)) {return i;} // needs O(n) time
+}
+```
+
+Suppose large.size = m || small.size = n
+This method takes O(n*(m-n)) 
+
+**Method 2** Rabin-Karp
+
+First calculate the small string's hash, compare with each substring of the larger String.
+Hash function used is module hash decribed as:
+``` java
+int largePrime = 101, prime = 31, seed = 1
+private int moduleHash(int hash, int addition, int prime, int largePrime) {
+    return (hash * prime % largePrime + addition) % largePrime;
+}
+```
+when calculate the larger String's substr hash, delete the first index's hash, add the next index:
+``` java
+int hash = nonNegative(hash - seed * large.charAt(i - 1) % largePrime, largePrime);
+int hash = moduleHash(hash, large.charAt(i + small.size() - 1), prime, largePrime);
+```
+
+
+### Topic with merge sort
+
+#### String combinations: A1B2C3D4 -> ABCD1234
+
+- Use merge sort. The difference is when doing merge process, distinguish 
+
+```java
+if ((int)helper[l] <= 57 && (int)helper[l] >= 48) {
+    // ASCII 码数字在[48,57]->[0,9]
+} 
+```
+
+If that's the case, move it to right. else to left.
+
+- Use bit operation. **Note** this method only works when the length of array is 2^n. Suppose the original array is
+
+`0 1 2 3 4 5 6 7` 
+`A 1 B 2 C 3 D 4` 
+
+the array we want is 
+
+`A B C D 1 2 3 4`
+
+We can tell that $A$ and $4$ stays same. the mapping of transformation is:
+
+sol[1] = arr[2]; sol[2] = arr[4]; sol[4] = arr[1].
+&&
+sol[3] = arr[6]; sol[6] = arr[5]; sol[5] = arr[3].
+
+If we change such mapping into bit operation, we can get:
+
+``` java
+// get the digits of the bits. which is 3 in this example
+int logn = 31 - Integer.numberOfLeadingZeros(size);
+// how to transform 1->2, 2->4, 4->1,3->6,...
+if (!overflow) i << 1;
+else i >> logn - 1;
+// we can write this in one line
+(i << 1 | i >> logn - 1)&(size-1)
+```
+
+- After this, we can simply using sol[i] = arr[helper[i]] to map the result.
+
+### String reversal : Topic with "I love yahoo-> yahoo love I"
+
+#### "apple" -> "elppa"
+
+**Method 1** Iterative way
+``` java 
+int i = 0, j = arr.length - 1;
+while (i < j) {
+    swap(arr, i++, j--);
+}
+```
+**Method 2** Recursive way
+``` java
+private void reverse(char[] arr, int left, int right) {
+    if (left >= right) {return;}
+    reverse(arr, left + 1, right - 1);
+    swap(arr, left, right);
+}
+```
+
+#### "I love yahoo" -> "yahoo love I"
+
+1. Swap each word first;
+2. Swap the whole sentence.
+
+`Remark: needs to handle corner case.[the last index]`
+
+#### Shift the whole string to the right hand side
+
+### String Combinations: ABCD1234 -> A1B2C3D4
+
+If we can transfer "ABCD1234" to "AB12CD34", we can simply use recursion to finish the task.
+We can following the rules, ABCD1234->ABDC2134->AB12CD34.
+
+
+
+
+
+
+
+
+
+
+

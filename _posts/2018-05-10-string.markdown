@@ -1,6 +1,4 @@
 `this is just a algorithm learning blog for my own purpose of use.`
-# String
-`This is just a personal file`
 
 5类常考问题
 
@@ -198,12 +196,54 @@ private void reverse(char[] arr, int left, int right) {
 
 `Remark: needs to handle corner case.[the last index]`
 
-#### Shift the whole string to the right hand side
+``` java
+private void reverse(char[] input) {
+    int slow = 0;
+    for (int i = 0; i < input.length; i++) {
+        if (input[i] == ' ' || i == input.length - 1) {
+            // guarantee no leading/trailing/duplicate spaces
+            if (i == input.length - 1) {
+                reverseHelper(input, slow, i);
+            } else {
+                reverseHelper(input, slow, i-1);
+            }
+        }
+    }
+    reverseHelper(input, 0, input.length - 1);
+}
+```
+
+#### Shift the whole string to the right hand side by k positions
+
+"abcd | ef" -> "ef | abcd" shift right by 2
+
+Similar with previous question, consider put a spliter in (arr.length - k) % arr.length. Do String reverse.
+
+### String Replace
+
+We need to make sure slow pointer can not move ahead of fast pointer, that leads to two situations:
+
+- Replace Shorter: "den" - "XX"
+    - We can use **two pointers from Left to Right**. Once we find a match, copy *target* to *source* position;
+- Replace Longer: "_" -> "%20"
+    - Need to use **two pointers from right to left**. 
+    - First, find all matches String's last index pointer; Store in a List
+    - Next, calculate new char arr's length.
+    - For each match index in the list, copy *target* to the result char array.
+    - fast -= s.length; slow -= t.length. [fast in input array, slow in result array]
+
+**Method 2**
+
+We can also use StringBuilder and String.indexOf() API to do this simply. 
+- Once we find a match index using String.indexOf(fromIndex, source) [here]
+- while (still can find a match index) : do stringBuilder.append(String between fromIndex and matchIndex).append(target String)
+
 
 ### String Combinations: ABCD1234 -> A1B2C3D4
 
 If we can transfer "ABCD1234" to "AB12CD34", we can simply use recursion to finish the task.
-We can following the rules, ABCD1234->ABDC2134->AB12CD34.
+
+We can following the rules, AB CD 12 34->AB DC 21 34->AB 12 CD 34.
 
 
 

@@ -238,12 +238,61 @@ We can also use StringBuilder and String.indexOf() API to do this simply.
 - Once we find a match index using String.indexOf(fromIndex, source) [here]
 - while (still can find a match index) : do stringBuilder.append(String between fromIndex and matchIndex).append(target String)
 
-
 ### String Combinations: ABCD1234 -> A1B2C3D4
 
 If we can transfer "ABCD1234" to "AB12CD34", we can simply use recursion to finish the task.
 
 We can following the rules, AB CD 12 34->AB DC 21 34->AB 12 CD 34.
+
+### String Decoding
+
+This method often used in data storage. 
+
+**Run-Length Decoding** :  "a4b1c2b1a5" -> "aaaabccbaaaaa"
+
+Assumptions:
+- Do we have more than 10 elements? Yes.
+- Do the original String has numbers already? 
+    - Could be asked in follow-up. "111122333" -> "1#4, 2#2, 3#3" use ',' as deliminater.
+- case 1. can make the original String shorter/unchanged: # of occurance <= 2;
+- case 2. can make the orginal String larget: # of occurance > 2.
+
+**In place method** 
+- Do decodeShort First, return the new length after decoding.
+    - Two pointers from left to right, 
+    - if 0 <= arr[i+1] <= 2: copy # of occurence times of arr[i]; 
+- Then do decodeLong, 
+    - allocate enough space first;
+    - Two pointers from right to left;
+    - if 2 <= arr[i] <= 9: copy # of occurence times of arr[i-1];
+
+**StringBuilder**
+
+Simply read the input number m then append m times.
+
+### Sliding window in a String
+
+#### Longest Substring that contains only unique character.
+
+Return the length.
+
+"BDEFGADE" the longest substring that has unique chars is "BDEFGA" whose size is 6
+
+1. Create a Set to record all appeared elements. 
+2. left and right pointer form a sliding window
+    - If set.contains(arr[right]): set.remove(arr[left++])
+    - else: set.add(arr[right++]), update new global max if possible.
+
+#### All anagrams of a substring s2 in a long String s1
+
+`An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once. For example, the word anagram can be rearranged into "naga ram".`
+
+Eg: s2 = "aabc". s1 = "za**aabca**yywwww**bcaa**". we can find three anagrams: "aabc", "abca", "bcaa"
+
+1. Maintain a countMap alone with the sliding window;
+2. when the sliding window meet an element, if its in the countMap, count--; If count reduce from 1 to 0, match++;
+3. when the sliding window pop an element, if its in the countMap, count++; if count add from 0 to 1, match--;
+4. If match == countMap.size(), we have an anagram.
 
 
 

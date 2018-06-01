@@ -5,6 +5,10 @@ public String(char[] value, int offset, int count) {
     // check not null
     this.value = Arrays.copyOfRange(value, offset, offset + count);
 }
+// Example
+char[] arr = {'a', 'b', 'c'};
+new String(arr, 0, 3);
+// output is abc
 ```
 也就是说是指从offset开始数count个元素建立一个新String.
 

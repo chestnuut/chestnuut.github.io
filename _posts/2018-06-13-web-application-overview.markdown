@@ -1,0 +1,41 @@
+---
+layout: post
+title: Web application Overview
+date: 2018-06-13 15:23:24.000000000 -05:00
+---
+
+# Web application overview
+
+标签（空格分隔）： interview web-development
+
+---
+
+### What is URL?
+Uniform Resource Locator. - web address.
+reference to a **web resource** that specify its location on a computer network AND a mechanism for retrieving it.
+
+### What is DNS?
+DNS stands for "Domain Name System". It maps numeric computer addresses to human readable names.
+
+### What is HTTP?
+HTTP stands for "Hypertext Transfer Protocol" and is used to facilitate requests from browser and responses from server.
+
+## [How browsers work?][1]
+1. type URL:maps to an IP address through a **DNS lookup**.
+2. Browser sends an HTTP request to the server at this IP address. 
+3. After receiving responses from server, browser will show the contents [HTML] on server.
+4. browser rendering engine "parses" the HTML and creates a **DOM**(Document Object Model) tree.
+5. then browser parses style data(CSS or inline styles) and together with the HTML it constructs a render tree.
+6. the browser will find tags that require from other URLs, then send a request to these web server to get each of them.
+http://www.iefans.net/wp-content/uploads/2011/10/b4d5_2143330_1307526491g1JS.png
+
+### How does browser connect to a website?
+If anyone using your internet provider has previously visited somedomain.com, the name server machine remebers this and says back to your browser: somedomain.com is in this IP address.
+If no one visited somedomain.com before, the name server machine will ask one of 13 root name servers in the world. These machines know the IP address of every single domain registered anywhere.
+
+### Program Relationship models?
+- client/server [commonly used in internet, client request a service or resource from server]
+- master/slave [one device or process controls one or more ither devices or processes]
+- Peer to peer(P2P) [each node in the network can function as both a server and a client]
+
+  [1]: https://skillcrush.com/2013/02/24/how-browsers-work/

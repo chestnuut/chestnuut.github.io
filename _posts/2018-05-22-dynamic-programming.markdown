@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Recursion
+title: Dynamic Programming
 date: 2018-05-13 15:23:24.000000000 -05:00
 ---
 

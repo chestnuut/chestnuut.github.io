@@ -1,3 +1,9 @@
+---
+layout: post
+title: sorting algorithms
+date: 2018-04-20 15:23:24.000000000 -05:00
+---
+
 `this is just a algorithm learning blog for my own purpose of use.`
 # Sorting Algorithm
 ## selection sort

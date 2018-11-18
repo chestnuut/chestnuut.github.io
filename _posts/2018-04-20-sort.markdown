@@ -1,11 +1,12 @@
 ---
 layout: post
-title: sorting algorithms
+title: Sorting Algorithm
 date: 2018-04-20 15:23:24.000000000 -05:00
+tags: algorithm
 ---
 
 `this is just a algorithm learning blog for my own purpose of use.`
-# Sorting Algorithm
+
 ## selection sort
 1. find global min 
 2. put it on the left-most index in current range.

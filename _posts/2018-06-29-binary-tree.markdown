@@ -2,11 +2,10 @@
 layout: post
 title: Binary Tree
 date: 2018-06-29 15:23:24.000000000 -05:00
+tags: algorithm
 ---
 
 `this is just a algorithm learning blog for my own purpose of use.`
-
-# Binary Tree
 
 ## Tree Traverse
 

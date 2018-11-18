@@ -3,9 +3,9 @@ title: Zinuo Li
 subtitle: 李 子诺
 welcome_message: Welcome to my site. 
 description: Java EE | Big data | Machine Learning 
-creator: <a href="http://zinuo.me">@zinuoli</a>
+creator: <a href="http://arnoldzl.github.io">@zinuoli</a>
 
-url: "http://zinuo.me"
+url: "http://arnoldzl.github.io"
 
 permalink: /:year/:month/:title/
 
@@ -17,7 +17,7 @@ kramdown:
   syntax_highlighter: rouge
 
 # supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
-cover_color: blue
+cover_color:
 
 # The blog button should not be removed.
 blog_button:
@@ -51,18 +51,17 @@ paginate_path: "page/:num/"
 
 # Comment
 comment:
-    disqus: vno-jekyll
+    disqus: arnoldzl
     # duoshuo: 
     
 # Social
 social:
-    #weibo: onevcat
     github: arnoldzl
     twitter: Zinuolee
-    #gplus: 107108267983477358170
     mail: zli156@hawk.iit.edu
     facebook: arno.lee.56
     linkedin: arnoldzl
+    insta: arrrrrno
 
 # Google Analytics
 ga:

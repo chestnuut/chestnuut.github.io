@@ -1,6 +1,8 @@
 # Basic
 title: Zinuo Li
 subtitle: 李 子诺
+avatarTitle: arnoldzl
+avatarDesc: Strive to Learn
 welcome_message: Welcome to my site. 
 description: Java EE | Big data | Machine Learning 
 creator: <a href="http://arnoldzl.github.io">@zinuoli</a>
@@ -24,25 +26,14 @@ blog_button:
     title: Blog
     description: Visit my blog
 
-# Project button
-project_button:
-    title: Projects
-    description: Visit project page
-
-# About button
-about_button:
-    title: About
-    description: About
-
-# Resume button
-resume_button:
-    title: Resume
-    description: click to check
-
 # Navigation buttons in the front page.
-# nav:
-#     - {title: Projects, description: My Projects, url: 'http://project.onevcat.com'}
-#     # - {title: Another Button, description: A button, url: 'http://example.com'}
+nav:
+    - {title: Tags, description: Tags, url: '/tags'}
+    - {title: Archive, description: All Articles, url: '/archive'}
+    - {title: Resume, description: click to view, url: '/assets/Zinuo_Resume.pdf'}
+    - {title: Projects, description: My Projects, url: '/project'}
+    - {title: About, description: About, url: '/about'}
+    # - {title: Another Button, description: A button, url: 'http://example.com'}
 
 # Pagination
 gems: [jekyll-paginate]

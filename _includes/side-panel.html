@@ -3,14 +3,34 @@
 
     <div class="panel-main__inner panel-inverted">
     <div class="panel-main__content">
-
-        <a href="/#blog" title="{{ site.title }} home page" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="{{ site.title }} logo" class="panel-cover__logo logo" /></a>
+      <!-- 头像效果-start -->
+      <div class="ih-item circle effect right_to_left">            
+        <a href="/#blog" title="{{ site.title }} Home page" class="blog-button">
+            <div class="img"><img src="/assets/images/avatar.jpg" width="80" alt="{{ site.title }} logo" class="panel-cover__logo logo"></div>
+            <div class="info">  
+                <div class="info-back">
+                    <h2> 
+                        {% if site.avatarTitle %}
+                            {{site.avatarTitle}}
+                        {% endif %}
+                    </h2>
+                    <p>
+                      {% if site.avatarDesc %}
+                            {{site.avatarDesc}}
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </a>
+      </div>
+      <!-- 头像效果-end -->
+        <!-- <a href="/#blog" title="{{ site.title }} home page" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="{{ site.title }} logo" class="panel-cover__logo logo" /></a> -->
         <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for {{ site.title }}" class="blog-button">{{ site.title }}</a></h1>
         {% if site.subtitle %}
         <span class="panel-cover__subtitle panel-subtitle">{{site.subtitle}}</span>
         {% endif %}
         <hr class="panel-cover__divider" />
-        <p class="panel-cover__description">{{ site.description }}</p>
+        <!-- <p class="panel-cover__description">{{ site.description }}</p> -->
         <hr class="panel-cover__divider panel-cover__divider--secondary" />
         
         {% if site.welcome_message %}
@@ -22,12 +42,9 @@
             <nav class="cover-navigation cover-navigation--primary">
               <ul class="navigation">
                 <li class="navigation__item"><a href="/#blog" title="{{site.blog_button.description}}" class="blog-button">{{site.blog_button.title}}</a></li>
-                <li class="navigation__item"><a href="/assets/Zinuo_Resume.pdf" title="{{site.resume_button.description}}" >{{site.resume_button.title}}</a></li>
-                <li class="navigation__item"><a href=/2018/04/project-list/ title="{{site.project_button.description}}" class="blog-button">{{site.project_button.title}}</a></li>
-                <li class="navigation__item"><a href=/2018/04/about/ title="{{site.about_button.description}}" class="blog-button">{{site.about_button.title}}</a></li>
-                <!-- {% for item in site.nav %}
-                  <li class="navigation__item"><a href="{{item.url}}" target="_blank" title="{{item.description}}">{{item.title}}</a></li>
-                {% endfor %} -->
+                {% for item in site.nav %}
+                  <li class="navigation__item"><a href="{{item.url}}" title="{{item.description}}">{{item.title}}</a></li>
+                {% endfor %}
               </ul>
             </nav>
           </div>

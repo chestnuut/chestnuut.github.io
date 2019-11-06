@@ -1,13 +1,13 @@
 # Basic
 title: Zinuo Li
 subtitle: 李 子诺
-avatarTitle: arnoldzl
-avatarDesc: Strive to Learn
-welcome_message: Welcome to my site. 
+avatarTitle: chestnuut
+avatarDesc: 学到秃头
+welcome_message: 个人总结 | 博客 | 提升
 description: Java EE | Big data | Machine Learning 
-creator: <a href="http://arnoldzl.github.io">@zinuoli</a>
+creator: <a href="http://chestnuut.github.io">@zinuoli</a>
 
-url: "http://arnoldzl.github.io"
+url: "http://chestnuut.github.io"
 
 permalink: /:year/:month/:title/
 
